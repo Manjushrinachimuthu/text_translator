@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Translator - Home</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <div class="logo-icon">🌐</div>
+      <h2>Text Translator</h2>
+      <p class="subtitle">Translate with Culture</p>
+    </div>
+    <div class="bubbles">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+    <ul class="menu">
+      <li class="active"><a href="home.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="translate.html" class="nav-link">🈯 Translate</a></li>
+      <li><a href="history.html" class="nav-link">🕒 History</a></li>
+      
+    </ul>
+
+    <div class="user-section">
+      <div class="user-avatar" id="userAvatar">M</div>
+      <div class="user-info">
+        <p class="email" id="userEmail"></p>
+      </div>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="center-content">
+      <h1 id="welcomeText">Welcome</h1>
+      <p class="subtitle">Your reliable multilingual companion</p>
+
+      <div class="header-buttons">
+        <button class="primary" onclick="window.location.href='translate.html'">
+          🌐 Start Translating
+        </button>
+        <button class="secondary" onclick="window.location.href='history.html'">
+          🕒 View History
+        </button>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>100+ Languages</h3>
+        <p>Translate to any language with dialect precision</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Instant Results</h3>
+        <p>Get accurate translations in seconds</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>Privacy First</h3>
+        <p>Your translations are secure and private</p>
+      </div>
+      <div class="card">
+        <div class="icon">📝</div>
+        <h3>Translate Text</h3>
+        <p>Type or paste any text and get instant results</p>
+        <button class="card-btn" onclick="window.location.href='translate.html'">
+          Get Started →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Script to show logged in user -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const username = localStorage.getItem("username");
+      const email = localStorage.getItem("email");
+
+      // If not logged in → redirect to login page
+      if (!username || !email) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      // Show Welcome Username
+      document.getElementById("welcomeText").textContent =
+        `Welcome ${username}`;
+
+      // Show Email
+      document.getElementById("userEmail").textContent = email;
+
+      // Show First Letter in Avatar
+      document.getElementById("userAvatar").textContent =
+        username.charAt(0).toUpperCase();
+
+      // Logout
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.clear();
+        window.location.href = "index.html";
+      });
+
+    });
+  </script>
+
+</body>
+</html>
