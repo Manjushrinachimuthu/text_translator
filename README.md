@@ -14,3 +14,7 @@ User accounts: sign up and log in to save your translation history.
 History storage: keeps track of all your past translations for easy reference.
 
 Clean and intuitive interface for smooth translation experience.
+
+#website-link
+
+https://manjushrinachimuthu.github.io/text_translator/
